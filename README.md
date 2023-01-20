@@ -1,2 +1,1 @@
-# FCC-Quotes
-FreeCodeCamp - Quote Machine Project
+# Random Quote Machine

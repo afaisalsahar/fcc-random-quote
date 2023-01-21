@@ -8,15 +8,27 @@ body,
 }
 
 html, body {
-    background: linear-gradient(#190015, #000019);
+    background: radial-gradient(
+        rgba(74, 0, 0, 1), rgba(0,0,0,1)
+    )
 }
 
 .container {
     @extend .flex-container;
 }
 
+#tsparticles {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .splash {
     text-align: center;;
+    z-index: 1;
+    background: radial-gradient(
+        rgba(74, 0, 0, .8) 1%, rgba(0,0,0,0) 80%
+    );
     
     &__title {
         font-size: $size-increment-x4;

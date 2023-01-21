@@ -1,0 +1,57 @@
+@use './partials/variables' as *;
+@use './partials/globals' as *;
+
+html,
+body,
+.container {
+    min-height: 100vh;
+}
+
+html, body {
+    background: linear-gradient(#190015, #000019);
+}
+
+.container {
+    @extend .flex-container;
+}
+
+.splash {
+    text-align: center;;
+    
+    &__title {
+        font-size: $size-increment-x4;
+        text-transform: uppercase;
+        margin-bottom: $size-increment-x1-2;
+    }
+
+    &__source {
+        color: $alternate-color-tertiary;
+        font-size: $size-increment-x2;
+    }
+
+    &__order {
+        margin-top: $size-increment-x4;
+    }
+
+    &__choose {
+        font-size: $size-increment-x2-1;
+        color: $alternate-color-main;
+        font-weight: $font-weight-medium;
+        margin-bottom: $size-increment-x1-1;
+    }
+
+    &__action {
+        color: $alternate-color-tertiary;
+        font-weight: $font-weight-medium;
+        margin-left: $size-increment-x3;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__icon {
+        color: $alternate-color-tertiary;
+        font-size: $size-increment-x1-2;
+    }
+}

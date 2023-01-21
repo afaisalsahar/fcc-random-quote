@@ -1,0 +1,44 @@
+/* ##   size increments   ## */
+
+$size-increment-x1: .25rem; /* 4px */
+$size-increment-x1-1: .5rem; /* 8px */
+$size-increment-x1-2: .75rem; /* 12px */
+
+$size-increment-x2: 1rem; /* 16px */
+$size-increment-x2-1: 1.2rem;
+$size-increment-x2-2: 1.5rem; /* 24px */
+
+$size-increment-x3: 2rem; /* 32px */
+$size-increment-x3-1: 2.25rem; /* 36px */
+$size-increment-x3-2: 2.5rem; /* 40px */
+
+$size-increment-x4: 3rem; /* 48px */ 
+$size-increment-x4-1: 3.5rem; /* 56px */
+
+$size-increment-x5: 4rem; /* 64px */ 
+$size-increment-x6: 5rem; /* 80px */ 
+
+/* ##   colors   ## */
+
+$primary-color-main: #FFF;
+$primary-color-secondary: #FFF;
+$primary-color-tertiary: #FFF;
+$primary-color-quartary: #FFF;
+
+$alternate-color-main: #FEFEFE;
+$alternate-color-secondary: #FFF;
+$alternate-color-tertiary: #CCC;
+$alternate-color-quartary: #FFF;
+
+/* ##   font   ## */
+
+$font-face: 'Alegreya Sans SC', sans-serif;
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-medium: 500;
+
+/* ##   container/breakpoints   ## */
+
+$site-container: 1044px;
+$desktop-resolution: 1280px;
+$tablet-resolution: 768px;

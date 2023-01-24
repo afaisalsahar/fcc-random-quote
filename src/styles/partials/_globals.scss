@@ -6,13 +6,20 @@ body {
     line-height: $size-increment-x2-1;
     font-weight: $font-weight-light;
     color: $alternate-color-main;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
     text-decoration: none;
-    font-weight: $font-weight-light;
-    color: $alternate-color-main;
+    color: $alternate-color-quartary;
+    font-weight: $font-weight-medium;
     -webkit-font-smoothing: antialiased;
+
+    transition: color .3s ease-in-out;
+
+    &:hover, &:active, &:focus {
+        color: $alternate-color-main;
+    }
 }
 
 .flex-container {
@@ -20,6 +27,12 @@ a {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    @extend .flex-container;
+    max-width: 720px;
+    margin: auto;
 }
 
 h1,

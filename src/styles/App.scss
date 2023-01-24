@@ -14,7 +14,7 @@ html, body {
 }
 
 .container {
-    @extend .flex-container;
+    @extend .container;
 }
 
 #tsparticles {
@@ -53,17 +53,76 @@ html, body {
     }
 
     &__action {
-        color: $alternate-color-tertiary;
-        font-weight: $font-weight-medium;
         margin-left: $size-increment-x3;
 
         &:first-child {
             margin-left: 0;
         }
+        &:hover > .splash__icon {
+            color: $alternate-color-main;
+        }
     }
 
     &__icon {
-        color: $alternate-color-tertiary;
+        color: $alternate-color-quartary;
         font-size: $size-increment-x1-2;
+        transition: color .3s ease-in-out;
+    }
+}
+
+.quote {
+    text-align: center;;
+    z-index: 1;
+    background: radial-gradient(
+        rgba(74, 0, 0, .8) 1%, rgba(0,0,0,0) 80%
+    );
+
+    &__text {
+        font-weight: $font-weight-medium;
+        font-size: $size-increment-x2-1;
+        margin-bottom: $size-increment-x1;
+
+        &:before {
+            content: open-quote;
+        }
+        &:after {
+            content: close-quote;
+        }
+        quotes: "\201C""\201D""\2018""\2019";
+    }
+
+    &__author {
+        &:before {
+            content: '- ';
+        }
+    }
+
+    &__actions {
+        margin-top: $size-increment-x4;
+    }
+
+    &__action {
+        margin-left: $size-increment-x4;
+        color: $alternate-color-quartary;
+
+        &:hover > .quote__icon {
+            color: $alternate-color-main;
+        }
+    }
+
+    &__rank {
+        font-weight: $font-weight-medium;
+        font-size: $size-increment-x2-1;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    &__icon {
+        color: $alternate-color-quartary;
+        margin-right: $size-increment-x1;
+
+        transition: color .3s ease-in-out;
     }
 }

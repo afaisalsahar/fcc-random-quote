@@ -104,7 +104,9 @@ html, body {
     &__action {
         margin-left: $size-increment-x4;
         color: $alternate-color-quartary;
+        transition: color .3s ease-in-out;
 
+        &:hover,
         &:hover > .quote__icon {
             color: $alternate-color-main;
         }
@@ -124,5 +126,24 @@ html, body {
         margin-right: $size-increment-x1;
 
         transition: color .3s ease-in-out;
+    }
+}
+
+.footer {
+    padding-bottom: $size-increment-x1;
+    position: absolute;
+    bottom: 0;
+    text-transform: uppercase;
+    font-weight: $font-weight-medium;
+
+    &__icon {
+        display: inline-block;
+        margin: $size-increment-x1 .2rem 0;
+        vertical-align: middle;
+        fill: $alternate-color-main;
+    }
+
+    &__action {
+        color: $alternate-color-main;
     }
 }

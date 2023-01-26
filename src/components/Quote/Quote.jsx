@@ -1,7 +1,14 @@
 import React from 'react';
 
 const Quote = ({quote, handleNewQuote}) => {
-    
+
+    const quoteTweet = 
+            'https://twitter.com/intent/tweet?source=webclient&text=' + 
+            encodeURIComponent(quote.quote + ' - ') +
+            encodeURIComponent(quote.author + ' #Quote');
+
+    console.log(quoteTweet);
+
     return (
         <div className="quote">
             <blockquote className="quote__text">
@@ -24,7 +31,7 @@ const Quote = ({quote, handleNewQuote}) => {
                     <i className="quote__icon fa-solid fa-paper-plane"></i>
                     New Quote
                 </a>
-                <a className="quote__action" href=" " target="_blank">
+                <a className="quote__action" href={quoteTweet} rel='noreferrer' target="_blank">
                     <i className="quote__icon fa-brands fa-twitter"></i>
                     Tweet
                 </a>

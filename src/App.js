@@ -21,6 +21,7 @@ import quotesData from './data/quotes.json';
 // components
 import Splash from './components/Splash/Splash';
 import Quote from './components/Quote/Quote';
+import Footer from './components/Footer/Footer';
 
 let config = {
   mode: 0,
@@ -87,6 +88,8 @@ const App = () => {
           ? <Splash handleDisplayUpdate={handleDisplayUpdate} handleModeChange={handleModeChange} />
           : <Quote quote={quote} handleNewQuote={handleNewQuote}/>
         }
+
+        <Footer />
       </div>
   );
 };

@@ -1,13 +1,19 @@
+// react
 import React from 'react';
 
-const Quote = ({quote, handleNewQuote}) => {
+// state
+import { useSelector } from 'react-redux';
 
+const Quote = ({handleNewQuote}) => {
+    
+    // state
+    const quote = useSelector((state) => state.quote.value);
+
+    // tweet
     const quoteTweet = 
             'https://twitter.com/intent/tweet?source=webclient&text=' + 
             encodeURIComponent(quote.quote + ' - ') +
             encodeURIComponent(quote.author + ' #Quote');
-
-    console.log(quoteTweet);
 
     return (
         <div className="quote">
@@ -26,7 +32,7 @@ const Quote = ({quote, handleNewQuote}) => {
                 </span>
                 <a className="quote__action" href=" " onClick={(e) => {
                     e.preventDefault();
-                    handleNewQuote();
+                    handleNewQuote(quote);
                 }}>
                     <i className="quote__icon fa-solid fa-paper-plane"></i>
                     New Quote

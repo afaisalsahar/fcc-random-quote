@@ -6,8 +6,10 @@ import React from 'react';
 
 // state
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 // actions
+import { setQuote } from './features/quote';
 
 // particles JS
 import { useCallback } from 'react';
@@ -23,15 +25,20 @@ import Splash from './components/Splash/Splash';
 import Quote from './components/Quote/Quote';
 import Footer from './components/Footer/Footer';
 
+// utilities
+import { getRandNum } from './utils/math';
+
+// configuration 
 let config = {
   mode: 0,
   firstQuote: 1
 };
 
 const App = () => {
-
+  
+  // state
+  const dispatch = useDispatch();
   const [showQuote, setShowQuote] = useState(false);
-  const [quote, setQuote] = useState(quotesData[0]);
 
   // particles JS 
   const particlesInit = useCallback(async engine => {
@@ -42,28 +49,35 @@ const App = () => {
     await container;
   }, []);
 
+  // update quotes
+  const handleFirstQuote = () => {
+    dispatch(
+      setQuote(
+        quotesData[
+          config.mode === 1 ? 0 : config.mode === 2 ? quotesData.length - 1 : getRandNum(0, quotesData.length)
+        ]
+      )
+    );
 
-  const generateRandomIndex = () => {
-    return Math.floor(Math.random(0) * quotesData.length);
+    return config.firstQuote = 0;
   }
 
-  const handleNewQuote = () => {
+  const handleNewQuote = (quote) => {
 
-    if (config.firstQuote) {
-      if (config.mode === 1) setQuote(quotesData[0]);
-      if (config.mode === 2) setQuote(quotesData[quotesData.length-1]);
-      if (config.mode === 3) setQuote(quotesData[generateRandomIndex()]);
-
-      return config.firstQuote = 0;
-    }
-
+    if (config.firstQuote) return handleFirstQuote();
+    
     const quoteIndex = quotesData.indexOf(quote);
 
-    if (config.mode === 1) setQuote(quotesData[quoteIndex + 1]);
-    if (config.mode === 2) setQuote(quotesData[quoteIndex - 1]);
-    if (config.mode === 3) setQuote(quotesData[generateRandomIndex()]);
-}
+    dispatch(
+      setQuote(
+        quotesData[
+          config.mode === 1 ? quoteIndex + 1 : config.mode === 2 ? quoteIndex - 1 : getRandNum(0, quotesData.length)
+        ]
+      )
+    )
+  }
 
+  // update display
   const handleDisplayUpdate = () => {
     setShowQuote(!showQuote);
   }
@@ -74,8 +88,7 @@ const App = () => {
   }
 
   return (
-      <div className='container'>
-        
+      <div className='container'>        
         <Particles
             id="tsparticles"
             init={particlesInit}
@@ -86,7 +99,7 @@ const App = () => {
         {
           !showQuote
           ? <Splash handleDisplayUpdate={handleDisplayUpdate} handleModeChange={handleModeChange} />
-          : <Quote quote={quote} handleNewQuote={handleNewQuote}/>
+          : <Quote handleNewQuote={handleNewQuote}/>
         }
 
         <Footer />

@@ -1,12 +1,27 @@
+// react
 import React from 'react';
 
-const Splash = ({handleDisplayUpdate, handleModeChange}) => {
+// state
+import { useDispatch } from 'react-redux';
 
-    const handleStateChange = (event, mode) => {
-        event.preventDefault();
+// actions
+import { setMode } from '../../features/config';
 
-        handleModeChange(mode);
-        handleDisplayUpdate();
+// routing
+import { Link } from 'react-router-dom';
+
+// utilities
+import { getRandNum } from '../../utils/math';
+
+// data
+import quotesData from '../../data/quotes.json'
+
+const Splash = () => {
+    
+    const dispatch = useDispatch();
+
+    const handleModeConfig = (mode) => {
+        dispatch(setMode(mode));
     }
 
     return (
@@ -16,15 +31,25 @@ const Splash = ({handleDisplayUpdate, handleModeChange}) => {
             <div className='splash__order'>
                 <p className='splash__choose'>Choose the order you want to see the quotes</p>
                 <div className='splash__actions'>
-                    <a className='splash__action splash__action--asc' href=" " onClick={(e) => {handleStateChange(e, 1)}}>
+                    <Link
+                        className='splash__action splash__action--asc' 
+                        to={`/quote/0`}
+                        onClick={() => {handleModeConfig(1)}}>
                         <i className='splash__icon fa-solid fa-turn-down'></i> Ascending
-                    </a>
-                    <a className='splash__action splash__action--dsc' href=" " onClick={(e) => {handleStateChange(e, 2)}}>
+                    </Link>
+
+                    <Link
+                        className='splash__action splash__action--dsc'
+                        to={`/quote/${quotesData.length-1}`}
+                        onClick={() => {handleModeConfig(2)}}>
                         <i className='splash__icon fa-solid fa-turn-up'></i> Descending
-                    </a>
-                    <a className='splash__action splash__action--random' href=" " onClick={(e) => {handleStateChange(e, 3)}}>
+                    </Link>
+                    <Link
+                        className='splash__action splash__action--random'
+                        to={`/quote/${getRandNum(0, 100)}`}
+                        onClick={() => {handleModeConfig(3)}}>
                         <i className='splash__icon fa-solid fa-shuffle'></i> Random
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

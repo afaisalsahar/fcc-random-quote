@@ -1,4 +1,4 @@
-// imports
+// redux toolkit
 import { createSlice } from '@reduxjs/toolkit';
 
 const quoteInitialValue = {

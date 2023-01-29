@@ -30,10 +30,11 @@ const Quotation = () => {
     const config = useSelector((state) => state.config.value);
 
     useEffect(() => {
+
         if (!config.start) {
             dispatch(setStart(true));
         }
-        dispatch(setQuote(quotesData[Number(id)]));
+        dispatch(setQuote(quotesData[Number(id)-1]));
         
     }, [id, dispatch, config]);
 

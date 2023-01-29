@@ -4,17 +4,17 @@ import React from 'react';
 // state
 import { useDispatch } from 'react-redux';
 
-// actions
-import { setMode } from '../../features/config';
-
 // routing
 import { Link } from 'react-router-dom';
+
+// actions
+import { setMode } from '../../features/config';
 
 // utilities
 import { getRandNum } from '../../utils/math';
 
 // data
-import quotesData from '../../data/quotes.json'
+import quotesData from '../../data/quotes.json';
 
 const Splash = () => {
     
@@ -33,26 +33,26 @@ const Splash = () => {
                 <div className='splash__actions'>
                     <Link
                         className='splash__action splash__action--asc' 
-                        to={`/quote/0`}
+                        to={`/quote/1`}
                         onClick={() => {handleModeConfig(1)}}>
                         <i className='splash__icon fa-solid fa-turn-down'></i> Ascending
                     </Link>
-
                     <Link
                         className='splash__action splash__action--dsc'
-                        to={`/quote/${quotesData.length-1}`}
+                        to={`/quote/${quotesData.length}`}
                         onClick={() => {handleModeConfig(2)}}>
                         <i className='splash__icon fa-solid fa-turn-up'></i> Descending
                     </Link>
                     <Link
                         className='splash__action splash__action--random'
-                        to={`/quote/${getRandNum(0, 100)}`}
+                        to={`/quote/${getRandNum(0, quotesData.length)+1}`}
                         onClick={() => {handleModeConfig(3)}}>
                         <i className='splash__icon fa-solid fa-shuffle'></i> Random
                     </Link>
                 </div>
             </div>
         </div>
+        
     );
 };
 

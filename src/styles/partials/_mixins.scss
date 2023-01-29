@@ -1,0 +1,9 @@
+@use './variables' as *;
+
+/* ## responsive breakpoints ## */
+
+@mixin tablet-responsive {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}

@@ -48,7 +48,7 @@ const Quote = () => {
                 </span>
                 <Link
                     className="quote__action"
-                    to={`/quote/${handleNextQuote()}`}>
+                    to={`/quote/${handleNextQuote()+1}`}>
                     <i className="quote__icon fa-solid fa-paper-plane"></i>
                     New Quote
                 </Link>

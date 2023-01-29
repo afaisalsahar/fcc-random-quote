@@ -1,5 +1,6 @@
 @use './partials/variables' as *;
 @use './partials/globals' as *;
+@use './partials/mixins' as *;
 
 html,
 body,
@@ -15,6 +16,7 @@ html, body {
 
 .container {
     @extend .container;
+    padding: 0 $size-increment-x2;
 }
 
 #tsparticles {
@@ -31,9 +33,15 @@ html, body {
     );
     
     &__title {
-        font-size: $size-increment-x4;
+        font-size: 1.7rem;
+        font-weight: $font-weight-medium;
         text-transform: uppercase;
-        margin-bottom: $size-increment-x1-2;
+        margin-bottom: $size-increment-x1;
+
+        @include tablet-responsive {
+            font-size: $size-increment-x3;
+            line-height: $size-increment-x3;
+        }
     }
 
     &__source {
@@ -42,7 +50,7 @@ html, body {
     }
 
     &__order {
-        margin-top: $size-increment-x4;
+        margin-top: $size-increment-x3;
     }
 
     &__choose {
@@ -53,13 +61,18 @@ html, body {
     }
 
     &__action {
-        margin-left: $size-increment-x3;
+        margin-left: $size-increment-x2;
 
         &:first-child {
             margin-left: 0;
         }
+
         &:hover > .splash__icon {
             color: $alternate-color-main;
+        }
+
+        @include tablet-responsive {
+            margin-left: $size-increment-x3;
         }
     }
 
@@ -98,17 +111,25 @@ html, body {
     }
 
     &__actions {
-        margin-top: $size-increment-x4;
+        margin-top: $size-increment-x3;
     }
 
     &__action {
-        margin-left: $size-increment-x4;
+        margin-left: $size-increment-x2;
         color: $alternate-color-quartary;
         transition: color .3s ease-in-out;
 
+        &:first-child {
+            margin-left: 0;
+        }
+        
         &:hover,
         &:hover > .quote__icon {
             color: $alternate-color-main;
+        }
+
+        @include tablet-responsive {
+            margin-left: $size-increment-x3;
         }
     }
 
